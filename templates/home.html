@@ -16,6 +16,7 @@
   </head>
   <title>Possum Careers</title>
 </head>
+  {% include 'nav.html' %}
 <body class = "container">
   <h1 class = "text-center mt-2 mb-3">Possum Careers</h1>
   <img id="banner" class = "img-fluid" src = "https://possum-careers-website.kena99.repl.co/static/banner.jpg" >
@@ -25,8 +26,8 @@
   <h2>Open Positions</h2>
     {%include 'job_item.html'%}
   <div id = "contact-us" class = "text-center">
-    <button id = "contact-button" class= "btn btn-primary btn-lg">Contact Us</button>
-    <p> Copyright Peaceful Possum 2023</p>
+    <a href = "mailto: ncrrpwxrcgvcfneaqh@tcwlm.com?subject=Question about Possums" id = "contact-button" class= "btn btn-primary btn-lg">Contact Us</a>
+    <div>{% include 'footer.html'%} </div>
   </div>
 </body>
 </html>
