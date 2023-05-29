@@ -1,38 +1,13 @@
 from flask import Flask, render_template, jsonify
+from db import load_jobs
+from sqlalchemy import text
 
 app = Flask(__name__)
 
-job_dict = [
-  {
-    'id': 1,
-    'title': 'Possum Analyst',
-    'location': 'Bengaluru, India',
-    'salary': 'Rs. 10,000,000'
-  },
-  {
-    'id': 2,
-    'title': 'Possum Scientist',
-    'location': 'Dehli, India',
-    'salary': 'Rs. 15,000,000'
-  },
-  {
-    'id': 3,
-    'title': 'Front-end Possum',
-    'location': 'San Francisco, USA',
-    'salary': '$100,000'
-  },
-  {
-    'id': 4,
-    'title': 'Back-end Possum',
-    'location': 'Remote',
-    # 'salary': 'Rs. 19,000,000'
-  }
-]
-
-
 @app.route('/')
 def hello_world():
-  return render_template('home.html', jobs=job_dict)
+  jobs_list = load_jobs()
+  return render_template('home.html', jobs=jobs_list)
 
 @app.route('/jobs')
 def list_jobs():
